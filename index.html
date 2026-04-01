@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Diet Recipe Generator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="app-container">
+    <header class="header">
+      <div class="logo">
+        <span class="icon">🥗</span>
+        <h1>Smart Diet</h1>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <section class="hero">
+        <h2>What's in your fridge?</h2>
+        <p>Enter the ingredients you have, and we'll generate healthy, delicious recipes instantly.</p>
+        
+        <div class="search-container">
+          <input 
+            type="text" 
+            id="ingredients-input" 
+            class="search-input"
+            placeholder="e.g. eggs, spinach, tomatoes"
+            aria-label="Enter ingredients"
+            autocomplete="off"
+          >
+          <button id="search-btn" class="search-button">
+            <span>Find Recipes</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          </button>
+        </div>
+      </section>
+
+      <section class="results-section">
+        <div id="loading-state" class="hidden">
+          <div class="spinner"></div>
+          <p>Cooking up some recipes...</p>
+        </div>
+
+        <div id="error-state" class="hidden error-message">
+          <!-- Error message will be injected here -->
+        </div>
+
+        <div id="empty-state" class="empty-message">
+          <p>Search for ingredients to see recipes appear here.</p>
+        </div>
+
+        <div id="recipe-grid" class="recipe-grid">
+          <!-- Recipe cards will be injected here -->
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
