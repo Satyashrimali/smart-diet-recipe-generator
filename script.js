@@ -61,33 +61,39 @@ async function getRecipes(ingredients) {
 
 function displayRecipes(recipes) {
   const recipeGrid = document.getElementById("recipe-grid");
-  recipeGrid.innerHTML = "";
 
-  recipes.forEach(recipe => {
-    const card = document.createElement("div");
-    card.classList.add("recipe-card");
+  // Apply a filter, sort, and map pipeline
+  const recipesHTML = recipes
+    // 1. Filter: Keep only recipes that have a valid image
+    .filter(recipe => recipe.image)
+    // 2. Sort: Order by the least number of missed ingredients first (best match)
+    .sort((a, b) => a.missedIngredientCount - b.missedIngredientCount)
+    // 3. Map: Transform the recipe objects into HTML string cards
+    .map(recipe => {
+      // Keep up to 3 used and 3 missed ingredients to keep the UI clean
+      const usedIngs = recipe.usedIngredients.slice(0, 3).map(ing =>
+        `<span class="ingredient-tag used">✓ ${ing.name}</span>`
+      ).join("");
 
-    // Gather used and missed ingredients (just keeping peak 3 of each to keep the UI clean)
-    const usedIngs = recipe.usedIngredients.slice(0, 3).map(ing =>
-      `<span class="ingredient-tag used">✓ ${ing.name}</span>`
-    ).join("");
+      const missedIngs = recipe.missedIngredients.slice(0, 3).map(ing =>
+        `<span class="ingredient-tag missed">+ ${ing.name}</span>`
+      ).join("");
 
-    const missedIngs = recipe.missedIngredients.slice(0, 3).map(ing =>
-      `<span class="ingredient-tag missed">+ ${ing.name}</span>`
-    ).join("");
-
-    card.innerHTML = `
-      <img src="${recipe.image}" alt="${recipe.title}" class="recipe-image" loading="lazy">
-      <div class="recipe-content">
-        <h3 class="recipe-title">${recipe.title}</h3>
-        <div class="recipe-ingredients">
-          ${usedIngs}
-          ${missedIngs}
+      return `
+        <div class="recipe-card">
+          <img src="${recipe.image}" alt="${recipe.title}" class="recipe-image" loading="lazy">
+          <div class="recipe-content">
+            <h3 class="recipe-title">${recipe.title}</h3>
+            <div class="recipe-ingredients">
+              ${usedIngs}
+              ${missedIngs}
+            </div>
+            <button class="view-recipe-btn" onclick="alert('Viewing recipe details (Future Implementation)')">View Recipe</button>
+          </div>
         </div>
-        <button class="view-recipe-btn" onclick="alert('Viewing recipe details (Future Implementation)')">View Recipe</button>
-      </div>
-    `;
+      `;
+    })
+    .join("");
 
-    recipeGrid.appendChild(card);
-  });
+  recipeGrid.innerHTML = recipesHTML || "<p>No suitable recipes found.</p>";
 }
