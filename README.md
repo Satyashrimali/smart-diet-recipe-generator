@@ -1,63 +1,66 @@
-# Smart Diet Recipe Generator
+Smart Diet Recipe Generator
+Project Overview
 
-## Project Overview
+The Smart Diet Recipe Generator is a web application that helps users discover healthy meal ideas based on ingredients they already have. Instead of manually searching for recipes, users simply enter items available in their fridge, and the application suggests diet-friendly recipes that can be prepared using those ingredients.
 
-The Smart Diet Recipe Generator is a web application that helps users find healthy meal options based on the ingredients they have in their fridge. Instead of searching for recipes manually, users can enter the available ingredients, and the application will suggest suitable diet-friendly recipes. 
+This project focuses on making healthy eating easier and more practical—especially for students and busy individuals who want quick meal ideas without needing to buy additional groceries.
 
-This project aims to make healthy eating more convenient and practical, especially for students and individuals who want quick meal ideas without extra grocery shopping.
+Purpose of the Project
 
----
+The primary goal of this project is to build an interactive web application that integrates with a public API. It demonstrates core JavaScript concepts such as data fetching, dynamic UI updates, and responsive design. Additionally, the project addresses a real-world problem by helping users make healthier food choices using available ingredients.
 
-## Purpose of the Project
+API Used
 
-The main goal of this project is to build an interactive web application that uses a public API. It will demonstrate key JavaScript concepts like fetching data and creating a responsive user interface. The project also seeks to solve a real-life problem by helping users make healthier food choices using what they already have.
+This project uses the Spoonacular API, which provides comprehensive recipe data including ingredients, nutritional information, cooking instructions, and images. The API supports searching recipes by ingredients, making it ideal for generating personalized diet-friendly meal suggestions.
 
----
+Planned Features
+Ingredient-Based Search
 
-## API Used
+Users can enter one or more ingredients they currently have and retrieve matching recipes.
 
-This project will use the **Spoonacular API**, which provides detailed recipe data, including ingredients, nutritional information, and cooking instructions. The API allows users to search for recipes based on ingredients, making it suitable for this project.
+Filtering Options
 
----
+Recipes can be filtered based on:
 
-## Planned Features
+Calorie range
+Diet type (vegetarian, vegan, etc.)
+Health preferences
+Sorting Options
 
-* **Search Functionality**
-  Users can enter ingredients they have to search for recipes.
+Users can sort recipes by:
 
-* **Filtering Options**
-  Recipes can be filtered based on criteria such as calorie count, diet type (e.g., vegetarian), or other health preferences.
+Calories
+Preparation time
+Relevance
+Recipe Display
 
-* **Sorting Options**
-  Users can sort recipes by factors like calories, preparation time, or relevance.
+Each recipe card will display:
 
-* **Recipe Display**
-  Each recipe will show details like name, image, ingredients, and nutritional information.
+Recipe name
+Image
+Ingredients list
+Nutritional information
+Preparation details
+Loading Indicator
 
-* **Loading Indicator**
-  A loading state will appear while data is fetched from the API.
+A loading state will appear while recipe data is being fetched from the API.
 
-* **Responsive Design**
-  The website will be optimized for both mobile and desktop screens.
+Responsive Design
 
-* Toggle
-  Dark mode and light mode toggle
+The application will be fully responsive and optimized for both mobile and desktop devices.
 
----
+Dark/Light Mode Toggle
 
-## Technologies Used
+Users can switch between dark mode and light mode for better accessibility and user experience.
 
-* HTML
-* CSS
-* JavaScript 
-* Fetch API
-
----
-
-## Future Enhancements (Optional)
-
-* Save favorite recipes using local storage
-
-* Pagination or infinite scrolling for better performance
-
----
+Technologies Used
+HTML
+CSS
+JavaScript
+Fetch API
+Future Enhancements (Optional)
+Save favorite recipes using Local Storage
+Pagination or infinite scrolling for improved performance
+Advanced nutrition filters (protein, carbs, fat)
+Meal planning feature
+Shopping list generator
